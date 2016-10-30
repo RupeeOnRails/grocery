@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grocery_id: 1
+  quantity: 1
+  checked: false
+
+two:
+  grocery_id: 1
+  quantity: 1
+  checked: false

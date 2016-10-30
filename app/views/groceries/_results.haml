@@ -1,0 +1,15 @@
+%table#results
+  %thead
+    %tr
+      %th= sort_link @q, :name
+      %th= sort_link @q, :category
+      %th(colspan="3")
+
+  %tbody
+    - @groceries.each do |grocery|
+      %tr
+        %td= grocery.name
+        %td= grocery.category
+        %td= link_to 'Show', grocery
+        %td= link_to 'Edit', edit_grocery_path(grocery)
+        %td= link_to 'Destroy', grocery, method: :delete, data: { confirm: 'Are you sure?' }

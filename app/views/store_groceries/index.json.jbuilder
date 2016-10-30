@@ -1,0 +1,1 @@
+json.array! @store_groceries, partial: 'store_groceries/store_grocery', as: :store_grocery

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @store_grocery.store_id %>
+</p>
+
+<p>
+  <strong>Grocery:</strong>
+  <%= @store_grocery.grocery_id %>
+</p>
+
+<p>
+  <strong>Isle:</strong>
+  <%= @store_grocery.isle_id %>
+</p>
+
+<%= link_to 'Edit', edit_store_grocery_path(@store_grocery) %> |
+<%= link_to 'Back', store_groceries_path %>

@@ -1,0 +1,12 @@
+
+%p#notice
+
+
+.flex.center
+  %h1 The List
+.flex.center
+  = render partial: 'items/index'
+
+%br
+
+= link_to 'New Item', new_item_path

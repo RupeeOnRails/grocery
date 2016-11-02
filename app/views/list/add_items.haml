@@ -1,0 +1,14 @@
+%h1 Add Items
+
+.flex.space_around
+  %h2 Groceries
+  %h2 The List
+
+.flex.space_around.center_text
+  #groceries_container
+    = search_form_for @q, remote: true do |f|
+      = f.search_field :category_or_name_cont, placeholder: 'Search', id: 'search_field'
+    .flex.center
+      = render partial: 'groceries/index', locals: { actions: 'add_actions' }
+
+  = render partial: 'items/index'

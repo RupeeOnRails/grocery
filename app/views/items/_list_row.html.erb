@@ -1,0 +1,12 @@
+
+<tr data-id="<%= item.id %>">
+  <td>
+    <%= form_for item, remote: true, html: { class: 'autosave' } do |f| %>
+      <%= f.check_box :checked %>
+    <% end %>
+  </td>
+  <td><%= item.grocery %></td>
+  <td><%= item.quantity %></td>
+  <td><%= link_to 'Edit', edit_item_path(item) %></td>
+  <td><%= link_to 'Destroy', item, method: :delete, remote: true %></td>
+</tr>

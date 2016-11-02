@@ -10,6 +10,5 @@
       %tr
         %td= grocery.name
         %td= grocery.category
-        %td= link_to 'Show', grocery
-        %td= link_to 'Edit', edit_grocery_path(grocery)
-        %td= link_to 'Destroy', grocery, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Edit', edit_grocery_path(grocery.id)
+        %td= link_to 'Add To List', add_item_path(grocery.id), remote: true

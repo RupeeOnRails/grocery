@@ -10,8 +10,9 @@
 
   <body>
     <nav>
-      <%= link_to 'Items', items_path %>
-      <%= link_to 'Groceries', groceries_path %>
+      <%= link_to 'The List', items_path %> |
+      <%= link_to 'All Groceries', groceries_path %> |
+      <%= link_to 'Add to List', add_items_path %>
     </nav>
     <%= yield %>
   </body>

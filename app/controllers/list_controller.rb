@@ -3,7 +3,7 @@ class ListController < ApplicationController
     @q = Grocery.ransack(params[:q])
     @groceries = @q.result(distinct: true)
 
-    @items = Item.all
+    @items = Item.active
   end
 
   def add_item

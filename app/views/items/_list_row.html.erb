@@ -6,7 +6,7 @@
     <% end %>
   </td>
   <td><%= item.grocery %></td>
-  <td><%= item.quantity %></td>
+  <td class="quantity"><%= item.quantity %></td>
   <td><%= link_to 'Edit', edit_item_path(item) %></td>
   <td><%= link_to 'Destroy', item, method: :delete, remote: true %></td>
 </tr>

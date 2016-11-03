@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.active
+    @past_items = Item.inactive
   end
 
   # GET /items/1
@@ -42,7 +43,8 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { render nothing: true }
+        format.html { redirect_to items_path }
+        format.js
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -60,6 +62,11 @@ class ItemsController < ApplicationController
       format.js
       format.json { head :no_content }
     end
+  end
+
+  def clear_items
+    Item.clear
+    render nothing: true
   end
 
   private

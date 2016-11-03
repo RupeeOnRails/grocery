@@ -1,12 +1,22 @@
-
 %p#notice
-
 
 .flex.center
   %h1 The List
+
 .flex.center
-  = render partial: 'items/index'
+  = render partial: 'items/index', locals: { items: @items }
 
-%br
+.flex.center
+  = link_to 'Clear Items',  clear_items_path, remote: true
 
-= link_to 'New Item', new_item_path
+-#.flex.center
+  %h2 Past Items
+
+
+.flex.center
+  .inactive
+    = render partial: 'items/index', locals: { items: @past_items }
+
+
+
+

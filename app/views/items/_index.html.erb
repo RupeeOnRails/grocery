@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-  <% @items.each do |item| %>
+  <% items.each do |item| %>
     <%= render partial: 'items/list_row', locals: { item: item } %>
   <% end %>
   </tbody>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028222956) do
+ActiveRecord::Schema.define(version: 20161102004100) do
 
   create_table "groceries", force: :cascade do |t|
     t.string   "name"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20161028222956) do
     t.integer  "grocery_id"
     t.integer  "quantity"
     t.boolean  "checked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "active",     default: true
   end
 
   create_table "store_groceries", force: :cascade do |t|

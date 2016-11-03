@@ -11,4 +11,4 @@
     .flex.center
       = render partial: 'groceries/index', locals: { actions: 'add_actions' }
 
-  = render partial: 'items/index'
+  = render partial: 'items/index', locals: { items: @items }

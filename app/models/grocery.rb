@@ -5,4 +5,19 @@ class Grocery < ApplicationRecord
   def to_s
     name
   end
+
+  def add_to_list
+    existing_item = Item.active.select { |i| i.grocery == self }.first
+    if existing_item.blank?
+      item = Item.new
+      item.quantity = 1
+      item.grocery = self
+      item.save
+    else
+      item = existing_item
+      item.quantity = item.quantity + 1
+      item.save
+    end
+    item
+  end
 end

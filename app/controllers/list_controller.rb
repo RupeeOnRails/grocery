@@ -8,10 +8,7 @@ class ListController < ApplicationController
 
   def add_item
     @grocery = Grocery.find params[:grocery_id]
-    @item = Item.new
-    @item.quantity = 1
-    @item.grocery = @grocery
-    @item.save
+    @grocery.add_to_list
     @items = Item.active
   end
 end

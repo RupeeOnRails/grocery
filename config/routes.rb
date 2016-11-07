@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :store_groceries
   resources :stores
   resources :groceries
+  get 'add_search', to: 'groceries#add_search', as: 'add_search'
+
   resources :items
 
   get 'add_items', to: 'list#add_items'

@@ -6,8 +6,8 @@
 
 .flex.space_around.center_text
   #groceries_container
-    = search_form_for @q, remote: true do |f|
-      = f.search_field :category_or_name_cont, placeholder: 'Search', id: 'search_field', data: {  }
+    = search_form_for @q, url: add_search_path, remote: true do |f|
+      = f.search_field :category_or_name_cont, placeholder: 'Search', id: 'search_field'
     .flex.center
       = render partial: 'groceries/index', locals: { rows: 'add' }
 

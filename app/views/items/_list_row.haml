@@ -1,0 +1,13 @@
+%tr{ data: { id: item.id }}
+  %td
+    = form_for item, remote: true, html: { class: 'autosave' } do |f|
+      = f.check_box :checked
+  %td
+    = item.grocery
+  %td
+    = item.grocery.category
+  %td.quantity
+    = form_for item, remote: true, html: { class: 'autosave' } do |f|
+      = f.number_field :quantity, min: 1
+
+  %td= link_to 'Remove', item, method: :delete, remote: true

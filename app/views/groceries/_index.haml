@@ -7,9 +7,4 @@
 
   %tbody
     - @groceries.each do |grocery|
-      %tr
-        %td= grocery.name
-        %td= grocery.category
-        %td= link_to 'Edit', edit_grocery_path(grocery.id)
-        %td= link_to 'Add To List', add_item_path(grocery.id), remote: true
-
+      = render partial: "groceries/#{rows}_row", locals: { grocery: grocery }

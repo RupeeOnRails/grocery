@@ -1,16 +1,21 @@
-<table id="items">
-  <thead>
-  <tr>
-    <th></th>
-    <th>Grocery</th>
-    <th>Quantity</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<% if items.present? %>
+  <table id="items">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Grocery</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
 
-  <tbody>
-  <% items.each do |item| %>
-    <%= render partial: 'items/list_row', locals: { item: item } %>
-  <% end %>
-  </tbody>
-</table>
+    <tbody>
+    <% items.each do |item| %>
+      <%= render partial: 'items/list_row', locals: { item: item } %>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p id="items">The List is currently empty</p>
+<% end %>

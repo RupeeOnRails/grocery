@@ -1,1 +1,8 @@
-$('#items tr[data-id=<%= @item.id %>]').fadeOut('fast');
+var row = $('#items tr[data-id=<%= @item.id %>]');
+row.fadeOut(300);
+window.setTimeout(function(){
+  row.remove();
+  if ($('#items').find('tr').size() <= 1)
+    $('#items').replaceWith('<%= j render partial: 'items/index', locals: { items: @items } %>');
+}, 300);
+

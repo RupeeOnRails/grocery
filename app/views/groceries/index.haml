@@ -7,7 +7,7 @@
     = f.search_field :category_or_name_cont, placeholder: 'Search', id: 'search_field'
 
   .flex.center
-    = render partial: 'groceries/index'
+    = render partial: 'groceries/index', locals: { rows: 'index' }
 
 %br
 

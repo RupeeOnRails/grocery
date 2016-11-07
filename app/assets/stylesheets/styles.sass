@@ -23,11 +23,31 @@ th
 #search_field
   margin: 12px
 
+
+
+table
+  border-spacing: 0
+
 .inactive
-  td
-    opacity: 0.5
+
   th
     opacity: 0
+  td
+    opacity: 0.5
+    transition: opacity .1s linear
+
+  tr:hover td
+    opacity: .8
+
+
 
 td.quantity
   text-align: center
+  input[type=number]
+    width: 2.5em
+    text-align: center
+    border: 1px solid rgba(0,0,0,0)
+
+
+tr:hover td.quantity input[type=number]
+  border: 1px #ccc solid

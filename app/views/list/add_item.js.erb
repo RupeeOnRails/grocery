@@ -1,1 +1,1 @@
-$('#items tbody').append('<%= j render partial: 'items/list_row', locals: { item: @item } %>');
+$('#items').replaceWith('<%= j render partial: 'items/index', locals: { items: @items } %>');

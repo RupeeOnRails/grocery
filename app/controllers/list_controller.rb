@@ -12,5 +12,6 @@ class ListController < ApplicationController
     @item.quantity = 1
     @item.grocery = @grocery
     @item.save
+    @items = Item.active
   end
 end

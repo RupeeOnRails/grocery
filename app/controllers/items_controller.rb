@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.active
-    @past_items = Item.inactive
+    @past_items = Item.inactive.order(:created_at).reverse
   end
 
   # GET /items/1
@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item.destroy
+    @items = Item.active
     respond_to do |format|
       format.html { render nothing: true }
       format.js

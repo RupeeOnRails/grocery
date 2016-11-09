@@ -1,14 +1,11 @@
-%p#notice
-
-.flex.center
-  %h1 The List
+-#%p#notice
 
 .flex.center
   = render partial: 'items/index', locals: { items: @items }
 
-.flex.center
-  = link_to 'Clear Items',  clear_items_path, remote: true, data: { confirm: 'Are you done with this list?'}
+- if @items.present?
+  .flex.center
+    = link_to 'Clear Items',  clear_items_path, remote: true, data: { confirm: 'Are you done with this list?'}
 
-.flex.center
-  .inactive
-    = render partial: 'items/index', locals: { items: @past_items }
+.flex.center.inactive
+  = render partial: 'items/index', locals: { items: @past_items }

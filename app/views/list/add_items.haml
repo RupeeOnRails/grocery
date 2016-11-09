@@ -1,14 +1,8 @@
-%h1 Add Items
-
-.flex.space_around
-  %h2 Groceries
-  %h2 The List
-
-.flex.space_around.center_text
-  #groceries_container
+#groceries_container
+  .center_text
     = search_form_for @q, url: add_search_path, remote: true do |f|
-      = f.search_field :category_or_name_cont, placeholder: 'Search', id: 'search_field'
-    .flex.center
-      = render partial: 'groceries/index', locals: { rows: 'add' }
-
+      = f.search_field :category_or_name_cont, placeholder: 'Search Groceries', id: 'search_field', autocomplete: 'off'
+  .flex.center
+    = render partial: 'groceries/index', locals: { rows: 'add' }
+#items_container
   = render partial: 'items/index', locals: { items: @items }

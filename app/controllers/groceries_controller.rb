@@ -8,6 +8,11 @@ class GroceriesController < ApplicationController
     @groceries = @q.result(distinct: true)
   end
 
+  def index_search
+    @q = Grocery.ransack(params[:q])
+    @groceries = @q.result(distinct: true)
+  end
+
   def add_search
     @q = Grocery.ransack(params[:q])
     @groceries = @q.result(distinct: true)

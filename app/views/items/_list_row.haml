@@ -10,4 +10,4 @@
     = form_for item, remote: true, html: { class: 'autosave' } do |f|
       = f.number_field :quantity, min: 1
 
-  %td= link_to 'Remove', item, method: :delete, remote: true
+  %td.action= link_to 'Remove', item, method: :delete, remote: true

@@ -1,5 +1,5 @@
 %tr
   %td= grocery.name
   %td= grocery.category
-  %td= link_to 'Edit', edit_grocery_path(grocery.id)
-  %td= link_to 'Destroy', grocery_path(grocery.id), method: 'delete', data: { confirm: 'Are you sure?' }
+  %td.action= link_to 'Edit', edit_grocery_path(grocery.id)
+  %td.action= link_to 'Destroy', grocery_path(grocery.id), method: 'delete', data: { confirm: 'Are you sure?' }

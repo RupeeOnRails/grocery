@@ -1,6 +1,6 @@
-<h1>Editing Grocery</h1>
-
-<%= render 'form', grocery: @grocery %>
-
-<%= link_to 'Show', @grocery %> |
-<%= link_to 'Back', groceries_path %>
+<div class="center_text">
+  <h2>Editing Grocery</h2>
+  <%= render 'form', grocery: @grocery %>
+  <%= link_to 'Destroy', grocery_path(@grocery.id), method: 'delete', data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', groceries_path %>
+</div>

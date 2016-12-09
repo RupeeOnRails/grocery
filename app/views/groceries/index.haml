@@ -1,10 +1,15 @@
 .center_text
-  = search_form_for @q, url: index_search_path, remote: true do |f|
-    = f.search_field :category_or_name_cont, placeholder: 'Search Groceries', id: 'search_field'
-
+  = form_tag search_path, method: :get, remote: true, id: 'grocery_search' do |f|
+    = search_field_tag :query, '', placeholder: 'Search Groceries', class: 'search_field', autocomplete: 'off', incremental: 'incremental'
+  
   .flex.center
     = render partial: 'groceries/index', locals: { rows: 'index' }
 
 %br
 
-= link_to 'New Grocery', new_grocery_path
+
+.flex.center
+  = link_to 'Reset List Items',  clear_items_path, remote: true, data: { confirm: 'Are you done with this list?'}
+%br
+.flex.center
+  = link_to 'New Grocery', new_grocery_path

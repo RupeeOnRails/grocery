@@ -1,8 +1,12 @@
 #groceries_container
   .center_text
     = search_form_for @q, url: add_search_path, remote: true do |f|
-      = f.search_field :category_or_name_cont, placeholder: 'Search Groceries', id: 'search_field', autocomplete: 'off'
+      = f.search_field :category_or_name_cont, placeholder: 'Search Groceries', class: 'search_field', autocomplete: 'off'
   .flex.center
     = render partial: 'groceries/index', locals: { rows: 'add' }
+
 #items_container
+  .center_text
+    = search_form_for @q2, url: list_search_path, remote: true do |f|
+      = f.search_field :grocery_name_or_grocery_category_cont, placeholder: 'Search List', class: 'search_field', autocomplete: 'off'
   = render partial: 'items/index', locals: { items: @items }

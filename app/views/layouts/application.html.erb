@@ -5,14 +5,16 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'All Groceries', groceries_path, class: nav_link_class('groceries'), remote: true %>
-      <%= link_to 'The List', items_path, class: nav_link_class('items'), remote: true %>
-      <%= link_to 'Add to List', add_items_path, class: nav_link_class('list'), remote: true %>
-    </nav>
+    <header>
+      <div id="title">Grocery</div>
+
+      <!-- "show list items only" checkbox/switch  -->
+    </header>
     <div id="content">
       <%= yield %>
     </div>

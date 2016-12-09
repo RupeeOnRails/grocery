@@ -4,8 +4,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.active
+    # @items = Item.active
     @past_items = Item.inactive.order(:created_at).reverse
+    @q2 = Item.ransack({active_eq: true})
+    @items = @q2.result(distinct: true)
   end
 
   # GET /items/1
@@ -65,9 +67,33 @@ class ItemsController < ApplicationController
     end
   end
 
+  def increment
+    @item = Item.find params[:id]
+    @grocery = @item.grocery
+    @item.increment
+    render 'list/update_item'
+  end
+
+  def decrement
+    @item = Item.find params[:id]
+    @grocery = @item.grocery
+    if @item.quantity <= 1
+      @item.destroy
+    else
+      @item.decrement
+    end
+    render 'list/update_item'
+  end
+
   def clear_items
     Item.clear
     render nothing: true
+  end
+
+  def list_search
+    params[:q][:active_eq] = true
+    @q2 = Item.ransack(params[:q])
+    @items = @q2.result(distinct: true)
   end
 
   private

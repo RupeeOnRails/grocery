@@ -1,5 +1,19 @@
-%tr
+%tr{ data: { grocery_id: grocery.id }}
+  %td
+    - if grocery.active_item
+      = form_for grocery.active_item, remote: true, html: { class: 'autosave' } do |f|
+        = f.check_box :checked
   %td= grocery.name
   %td= grocery.category
+  %td.quantity
+    - if grocery.active_item
+      = link_to '<i class="material-icons">remove</i>'.html_safe, decrement_item_path(grocery.active_item.id), remote: true
+  %td.quantity
+    - if grocery.active_item
+      = grocery.active_item.quantity
+    - else
+      = link_to 'Add', add_item_path(grocery.id), remote: true
+  %td.quantity
+    - if grocery.active_item
+      = link_to '<i class="material-icons">add</i>'.html_safe, increment_item_path(grocery.active_item.id), remote: true
   %td.action= link_to 'Edit', edit_grocery_path(grocery.id)
-  %td.action= link_to 'Destroy', grocery_path(grocery.id), method: 'delete', data: { confirm: 'Are you sure?' }

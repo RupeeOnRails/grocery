@@ -20,4 +20,18 @@ class Item < ApplicationRecord
     end
   end
 
+
+  def category
+    grocery ? grocery.category : nil
+  end
+
+  def increment
+    self.quantity = quantity + 1
+    save
+  end
+
+  def decrement
+    self.quantity = quantity - 1
+    save
+  end
 end

@@ -1,6 +1,7 @@
 class Grocery < ApplicationRecord
   has_many :store_groceries
   has_many :stores, through: :store_groceries
+  has_many :items
 
   def to_s
     name
@@ -20,4 +21,17 @@ class Grocery < ApplicationRecord
     end
     item
   end
+
+  def active_item
+    if items.last && items.last.active
+      items.last
+    else
+      nil
+    end
+  end
+
+  def category
+    super ? super.downcase : nil
+  end
+
 end

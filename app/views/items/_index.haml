@@ -1,0 +1,15 @@
+- if items.present?
+  %table#items
+    %thead
+      %tr
+        %th(style="width:1.75em;")
+        %th Grocery
+        %th Category
+        %th.center_text Quantity
+        %th(colspan="1" style="width:4.5em;")
+    %tbody
+    - items.each do |item|
+      = render partial: 'items/list_row', locals: { item: item }
+
+- else
+  %p#items The List is currently empty

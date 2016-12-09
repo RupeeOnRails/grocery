@@ -1,0 +1,2 @@
+var row = $('tr[data-grocery-id=<%= @grocery.id %>]');
+row.replaceWith('<%= j render partial: 'groceries/index_row', locals: { grocery: @grocery } %>');

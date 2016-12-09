@@ -5,7 +5,7 @@
   %td
     = item.grocery
   %td
-    = item.grocery.category
+    = item.category
   %td.quantity
     = form_for item, remote: true, html: { class: 'autosave' } do |f|
       = f.number_field :quantity, min: 1

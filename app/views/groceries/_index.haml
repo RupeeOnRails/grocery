@@ -1,11 +1,11 @@
-%table#results
+%table#items
   %thead
     %tr
-      %th= sort_link @q, :name
-      %th= sort_link @q, :category
+      %th
+      %th Name
+      %th Category
+      %th.quantity(colspan=3) Quantity
       %th(style="width:6em;")
-      - if rows == 'index'
-        %th(style="width:5em;")
   %tbody
     - @groceries.each do |grocery|
       = render partial: "groceries/#{rows}_row", locals: { grocery: grocery }

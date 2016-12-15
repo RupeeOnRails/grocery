@@ -91,9 +91,12 @@ tr, td, input[type=number]
 
 
 
-td.quantity, th.quantity
+.quantity, .increment, .decrement
   text-align: center
   min-width: 46px
+
+  transition: opacity .2s ease
+
   input[type=number]
     width: 2.5em
     text-align: center
@@ -160,3 +163,23 @@ table
 
 i.material-icons
   font-size: 36px
+
+
+.loader
+  display: inline-block
+  border: .2em solid #eee
+  border-top: .2em solid #e81c4f
+  border-radius: 50%
+  width: .8em
+  height: .8em
+  animation: spin 2s linear infinite
+
+
+@keyframes spin
+  0% 
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.cloaked
+  opacity: 0

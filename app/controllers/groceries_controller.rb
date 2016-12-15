@@ -5,14 +5,14 @@ class GroceriesController < ApplicationController
   # GET /groceries.json
   def index
     list_items = Grocery.left_joins(:items).where('items.active' => true).order('checked').order :category
-    dont_need  = Grocery.left_joins(:items).where.not('items.active' => true).order :category
-    @groceries = (list_items + dont_need).uniq
+    everything = Grocery.all
+    @groceries = (list_items + everything).uniq
   end
 
   def search
     list_items = Grocery.left_joins(:items).where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%").where('items.active' => true).order('checked')
-    dont_need  = Grocery.left_joins(:items).where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%").where.not('items.active' => true)
-    @groceries = (list_items + dont_need).uniq
+    other_matches = Grocery.where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%")
+    @groceries = (list_items + other_matches).uniq
   end
 
   def add_search

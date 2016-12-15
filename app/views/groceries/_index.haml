@@ -1,11 +1,11 @@
 %table#items
   %thead
     %tr
-      %th
+      %th.check
       %th Name
       %th Category
       %th.quantity(colspan=3) Quantity
-      %th(style="width:6em;")
+      %th.edit
   %tbody
     - @groceries.each do |grocery|
       = render partial: "groceries/#{rows}_row", locals: { grocery: grocery }

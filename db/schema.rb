@@ -12,32 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20161102004100) do
 
-  create_table "groceries", force: :cascade do |t|
-    t.string   "name"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "groceries", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "category"
+    t.string "category"
   end
 
-  create_table "items", force: :cascade do |t|
-    t.integer  "grocery_id"
-    t.integer  "quantity"
-    t.boolean  "checked"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.boolean  "active",     default: true
+  create_table "items", id: :serial, force: :cascade do |t|
+    t.integer "grocery_id"
+    t.integer "quantity"
+    t.boolean "checked"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
-  create_table "store_groceries", force: :cascade do |t|
-    t.integer  "store_id"
-    t.integer  "grocery_id"
-    t.integer  "isle_id"
+  create_table "store_groceries", id: :serial, force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "grocery_id"
+    t.integer "isle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "stores", force: :cascade do |t|
-    t.string   "name"
+  create_table "stores", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
 
   def clear_items
     Item.clear
-    render nothing: true
+    redirect_to root_path
   end
 
   def list_search

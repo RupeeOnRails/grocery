@@ -8,8 +8,6 @@ $(document).on 'search', '#grocery_search input, #item_search input', ->
   else  
     $(this).closest('form').submit()
 
-$(document).on 'keydown', '#grocery_search input', ->
-
 
 $ ->
   $('.search_field:first').focus()

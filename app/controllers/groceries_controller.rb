@@ -5,13 +5,13 @@ class GroceriesController < ApplicationController
   # GET /groceries.json
   def index
     list_items = Grocery.left_joins(:items).where('items.active' => true).order('checked').order :category
-    everything = Grocery.all
+    everything = Grocery.all.order :category
     @groceries = (list_items + everything).uniq
   end
 
   def search
     list_items = Grocery.left_joins(:items).where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%").where('items.active' => true).order('checked')
-    other_matches = Grocery.where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%")
+    other_matches = Grocery.where('name LIKE :query OR category LIKE :query', query: "%#{params[:query]}%").order :category
     @groceries = (list_items + other_matches).uniq
   end
 
@@ -55,7 +55,7 @@ class GroceriesController < ApplicationController
   def update
     respond_to do |format|
       if @grocery.update(grocery_params)
-        format.html { redirect_to @grocery, notice: 'Grocery was successfully updated.' }
+        format.html { redirect_to groceries_path, notice: 'Grocery was successfully updated.' }
         format.json { render :show, status: :ok, location: @grocery }
       else
         format.html { render :edit }
